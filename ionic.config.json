@@ -1,0 +1,7 @@
+{
+  "name": "MyEuros",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

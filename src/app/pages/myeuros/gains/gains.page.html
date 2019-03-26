@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-title style="text-align:center; ">Gains</ion-title>
+
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding>
+
+  <ion-fab vertical='bottom' horizontal='end' slot='fixed'>
+    <ion-fab-button color='secondary' size='small' (click)='presentModal(null)'>
+      <ion-icon name='add'></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  
+
+  <ion-grid id="grid-default" no-padding>
+
+    <ion-row id="row-segment">
+      <ion-col no-padding>
+          <ion-segment (ionChange)="segmentChanged($event)" color="secondary">
+
+            <ion-segment-button value="monthly">
+              <ion-label>Monthly</ion-label>
+            </ion-segment-button>
+        
+            <ion-segment-button value="weekly">
+              <ion-label>Weekly</ion-label>
+            </ion-segment-button>
+        
+            <ion-segment-button value="Daily">
+              <ion-label>Daily</ion-label>
+            </ion-segment-button>
+
+          </ion-segment>
+      </ion-col>
+    </ion-row>
+
+    <ion-row id="row-total">
+      <ion-col no-padding>
+
+        <div id="total-container">
+
+            <p class="title-total">TOTAL GAINS</p>
+            <p class="value-total">{{ gainsTotal ? (gainsTotal.total | currency : 'EUR') : 0 | currency : 'EUR'}}</p>
+
+
+        </div>
+
+        
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row id="row-items" *ngIf="ready">
+      <ion-col id="col-items">
+
+                
+        <div class="card-item" *ngIf='!gainsTotal.gains.length'>
+          <div class="card-container">
+            <div class='card-icon-container'>
+              <div class='card-icon'>x</div>
+            </div>
+
+            <div class="title-date">
+                <p class='card-title'>No gains found</p>
+            </div>
+              
+            <h1 class='card-value'>:(</h1>
+
+            <div class='card-hr'></div>
+
+            <div class='card-chip'>
+              <p class='card-chip-label'></p>
+            </div>
+  
+          </div>
+        </div>
+              
+        <div class="card-item" *ngFor="let gain of gainsTotal.gains">
+
+          <div class="card-container">
+
+            <div class='card-icon-container' (click)='presentModal(gain)'>
+              <div class='card-icon'> {{gain.id}}</div>
+            </div>
+
+              <div class="title-date">
+                  <p class='card-title'>{{gain.name}}</p>
+                  <p class='card-date'>{{gain.datetime}}</p>
+              </div>
+            
+              <h1 class='card-value'>{{ gain.value | currency : 'EUR'}}</h1>
+
+              <div class='card-hr'></div>
+
+              <div class='card-chip'>
+                <p class='card-chip-label'> {{ gain.category.name }}</p>
+              </div>
+
+          </div>
+        </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  
+  
+    
+
+</ion-content>

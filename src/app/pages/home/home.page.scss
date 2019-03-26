@@ -1,0 +1,76 @@
+
+.active-item {
+    border-left: 8px solid var(--ion-color-primary);
+}
+
+
+app-home, #oi {
+    background-color: lightsteelblue;
+}
+
+#grid-home {
+    height: 100%; 
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+#grid-home .grid-row{
+    flex-grow: 1;
+}
+
+
+#grid-home .grid-btn{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 100%;
+    font-size: 28px;
+    font-weight: bold;
+    border: 1px grey solid;
+    box-shadow: 7px 4px 2px grey;
+}
+
+#myeuros-btn {
+
+    background: turquoise;
+
+}
+
+#tobuy-btn {
+    background: blueviolet;
+}
+
+#todo-btn {
+    background: grey;
+}
+
+#recipes-btn {
+
+    background: firebrick;
+    
+}
+
+app-home {
+
+    background-color: black; 
+    .category {
+        font-style: italic;
+
+    }
+
+    .datetime {
+        font-weight: bold;
+        text-align: end;
+    }
+
+    .value {
+        text-align: end;
+    }
+
+    .grid-home{
+        background-color: black;
+    }
+
+
+
+
+}
